@@ -262,6 +262,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xd6;sszes eddigi k&#xe9;rd&#xe9;s: -"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
