@@ -14,10 +14,9 @@ import javax.swing.JLabel;
  */
 public class ui extends javax.swing.JFrame {
 
-    
     private double jelenlegimegoldas;
     private int eddigikerdesek;
-    
+
     /**
      * Creates new form ui
      */
@@ -270,78 +269,85 @@ public class ui extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        if(!jTextField1.getText().isEmpty()){
-            
-        double valasz = Double.parseDouble(jTextField1.getText());
-      
-        if(valasz == jelenlegimegoldas){
-        jLabel10.setText("Visszajelzés: HELYES MEGOLDÁS");
-           feladatotgeneral();
-        }else{
-        jLabel10.setText("Visszajelzés: ROSSZ MEGOLDÁS");
-          }
-        }else{
+
+        if (!jTextField1.getText().isEmpty()) {
+
+            double valasz = Double.parseDouble(jTextField1.getText());
+
+            if (valasz == jelenlegimegoldas) {
+                jLabel10.setText("Visszajelzés: HELYES MEGOLDÁS");
+                feladatotgeneral();
+            } else {
+                jLabel10.setText("Visszajelzés: ROSSZ MEGOLDÁS");
+            }
+        } else {
             jLabel10.setText("Visszajelzés: ÜRES MEZŐ");
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       
-      
+
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
-     
-      
+
+
     }//GEN-LAST:event_jMenuItem2MouseClicked
 
     private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
-   
-   
+
+
     }//GEN-LAST:event_jMenu7ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       feladatotgeneral();
-       
+        feladatotgeneral();
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    public void feladatotgeneral(){
-    
-     Random rnd = new Random();
-         int maradek;
-         String feladat;
-          
-         do {
-        int a = rnd.nextInt(100 - 1 + 1) + 1;
-        int b = rnd.nextInt(100 - 1 + 1) + 1;
-        if(a > b){
-          maradek = a%b;
-        feladat =  a + "/" + b;  
-            jelenlegimegoldas = a/b;
-        }else{   
-             maradek = a%b;
-        feladat =  b + "/" + a;  
-            jelenlegimegoldas = b/a;
-        }
-         }while(maradek >= 1);
+    public void feladatotgeneral() {
 
-        
-        
+        Random rnd = new Random();
+        int maradek;
+        String feladat;
+        boolean ell = true;
+
+        do {
+            int a = rnd.nextInt(100 - 0 + 1) + 0;
+            int b = rnd.nextInt(100 - 0 + 1) + 0;
+            if (a > b) {
+                if (b == 0) {
+                    ell = false;
+                }
+
+                maradek = a % b;
+                feladat = a + "/" + b;
+
+                jelenlegimegoldas = a / b;
+            } else {
+                if (a == 0) {
+                    ell = false;
+                }
+
+                maradek = a % b;
+                feladat = b + "/" + a;
+
+                jelenlegimegoldas = b / a;
+            }
+        } while (maradek >= 1 && !ell);
+
         jLabel1.setText(feladat);
         jLabel3.setText(eddigikerdesek());
-    
+
     }
-    
-    public String eddigikerdesek(){
-        eddigikerdesek++;         
-        return "Összes eddigi kérdés: " +eddigikerdesek;
+
+    public String eddigikerdesek() {
+        eddigikerdesek++;
+        return "Összes eddigi kérdés: " + eddigikerdesek;
     }
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
